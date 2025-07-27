@@ -1,0 +1,2 @@
+6 1 BITFLIP
+8 2 ST0

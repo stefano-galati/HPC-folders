@@ -1,0 +1,4 @@
+*.sif
+*.log
+simulations/database/*
+simulations/outputs/*

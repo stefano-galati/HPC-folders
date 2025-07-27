@@ -1,0 +1,18 @@
+Bootstrap: docker
+From: ubuntu:22.04
+
+%files
+	./../test.txt /ciao
+
+%environment
+	DEBIAN_FRONTEND=noninteractive 
+	TZ=Europe/Rome
+
+%post
+	export DEBIAN_FRONTEND=noninteractive 
+	export TZ=Europe/Rome
+	
+%runscript
+	echo "Hello world"
+	ls -la
+
