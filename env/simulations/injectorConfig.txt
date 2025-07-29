@@ -1,0 +1,19 @@
+#comment test
+SIMULATIONSFOLDER=/simulations
+BINARYFILESFOLDER=/common/exec/RISCV
+GEM5FOLDER=/myGem5
+GEM5CONFIGSFOLDER=/common/configs
+FAULTLISTSFOLDER=/common/faultLists
+OUTPUTSFOLDER=/simulations/outputs
+DATABASEFOLDER=/simulations/database
+ISA=RISCV
+GEM5=gem5.opt
+CONFIG=simple-riscv-fault-injector.py
+BINARYFILE=testAddFile
+FAULTLISTFILE=fl1.txt
+DEBUGFLAGS=
+DEBUGFILE=
+TICKLIMIT=150%
+OUTPUTFILE=out.txt
+CREATEHISTOGRAM=yes
+CUSTOMREGMASKSFOLDER=/common/faultLists/customRegMasks

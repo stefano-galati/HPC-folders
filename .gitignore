@@ -1,4 +1,6 @@
 *.sif
 *.log
-simulations/database/*
-simulations/outputs/*
+env/simulations/database/*
+env/simulations/outputs/*
+env/workspace/*
+env/common/splitFaultLists/*

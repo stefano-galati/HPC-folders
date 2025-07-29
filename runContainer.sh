@@ -2,4 +2,4 @@
 
 module load singularity
 
-singularity run --bind ./simulations:/simulations faultInjectorContainer.sif
+singularity exec --bind ./env/simulations:/simulations,./env/common:/common faultInjectorContainer.sif /simulations/firstCommands.sh $@

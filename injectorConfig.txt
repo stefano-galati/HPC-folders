@@ -1,9 +1,9 @@
 #comment test
 SIMULATIONSFOLDER=/simulations
-BINARYFILESFOLDER=/simulations/exec/RISCV
+BINARYFILESFOLDER=/common/exec/RISCV
 GEM5FOLDER=/myGem5
-GEM5CONFIGSFOLDER=/simulations/configs
-FAULTLISTSFOLDER=/simulations/faultLists
+GEM5CONFIGSFOLDER=/common/configs
+FAULTLISTSFOLDER=/common/faultLists
 OUTPUTSFOLDER=/simulations/outputs
 DATABASEFOLDER=/simulations/database
 ISA=RISCV
@@ -16,4 +16,4 @@ DEBUGFILE=
 TICKLIMIT=150%
 OUTPUTFILE=out.txt
 CREATEHISTOGRAM=yes
-CUSTOMREGMASKSFOLDER=/simulations/faultLists/customRegMasks
+CUSTOMREGMASKSFOLDER=/common/faultLists/customRegMasks

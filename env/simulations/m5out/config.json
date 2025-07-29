@@ -286,7 +286,7 @@
                     "name": "workload",
                     "path": "system.cpu.workload",
                     "cmd": [
-                        "/simulations/exec/RISCV/testAddFile"
+                        "/common/exec/RISCV/testAddFile"
                     ],
                     "cwd": "/simulations",
                     "drivers": [],
