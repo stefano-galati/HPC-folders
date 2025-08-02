@@ -4,10 +4,10 @@
 #SBATCH --mail-type=NONE
 #SBATCH --mail-user=s342146@studenti.polito.it
 #SBATCH --partition=cpu_sapphire
-#SBATCH --time=00:15:00
+#SBATCH --time=00:05:00
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=1
-#SBATCH --output=test.log
+#SBATCH --output=logs/runContainer.log
 #SBATCH --mem-per-cpu=10M
 
 
@@ -18,5 +18,7 @@ fi
 
 #To be run inside the target sim folder
 simFolder=$1 
+
+echo "singularity exec --bind $simFolder:/simulations,./env/common:/common faultInjectorContainer.sif /simulations/firstCommands.sh FAULTLISTFILE=$2 FAULTLISTSFOLDER=/common/splitFaultLists"
 
 singularity exec --bind $simFolder:/simulations,./env/common:/common faultInjectorContainer.sif /simulations/firstCommands.sh FAULTLISTFILE=$2 FAULTLISTSFOLDER=/common/splitFaultLists

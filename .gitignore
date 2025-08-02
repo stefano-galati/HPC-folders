@@ -1,6 +1,12 @@
 *.sif
-*.log
+logs/*.log
 env/simulations/database/*
+!env/simulations/database/README.txt
 env/simulations/outputs/*
+!env/simulations/outputs/README.txt
 env/workspace/*
+!env/workspace/README.txt
 env/common/splitFaultLists/*
+!env/common/splitFaultLists/README.txt
+results/*
+!results/README.txt

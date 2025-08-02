@@ -1,0 +1,11 @@
+# TO BE RUN IN ROOT FOLDER OF THE PROJECT (/HPC_Folders)
+
+if [[ $# -ne 2 ]]; then
+        echo "Wrong number of arguments. Usage $0 faultList numThreads"
+        exit 1
+fi
+
+faultList=$1
+numThreads=$2
+
+sbatch simulate.sbatch $faultList $numThreads

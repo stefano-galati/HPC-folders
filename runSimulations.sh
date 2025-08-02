@@ -21,13 +21,14 @@ echo "Hello!"
 cp injectorConfig.txt env/simulations/injectorConfig.txt
 
 #Remove files inside env/common/splitFaultLists
-rm -rf $SPLITFAULTLISTSFOLDER/*
+rm -rf $SPLITFAULTLISTSFOLDER/* 2> /dev/null
 
 #Create split fault lists
+echo "Splitting the fault list into $numThreads fault lists..."
 ./splitFaultList.sh $faultList $numThreads $FAULTLISTSFOLDER $SPLITFAULTLISTSFOLDER
 
 #Remove any sim folder in the workspace folder
-rm -rf $WORKSPACEFOLDER/*
+rm -rf $WORKSPACEFOLDER/* 2> /dev/null
 
 #For every fault list generated
 for filepath in $SPLITFAULTLISTSFOLDER/*; do
@@ -39,14 +40,13 @@ for filepath in $SPLITFAULTLISTSFOLDER/*; do
     	let num=$(find "$WORKSPACEFOLDER" -mindepth 1 -maxdepth 1 -type d | wc -l)+1
 	cp -r "$ROOTFOLDER/env/simulations" "$WORKSPACEFOLDER/sim_$num"
 	#Empty folders if not empty
-	rm -r $WORKSPACEFOLDER/sim_$num/database/*
-	rm -r $WORKSPACEFOLDER/sim_$num/outputs/*
+	rm -rf $WORKSPACEFOLDER/sim_$num/database/* 2> /dev/null
+	rm -rf $WORKSPACEFOLDER/sim_$num/outputs/* 2> /dev/null
 
 	#Usage: $0 simFolder faultListFile
 	sbatch $ROOTFOLDER/runContainer.sbatch "$WORKSPACEFOLDER/sim_$num" "$file"
 	
     fi
 done
-
 
 

@@ -1,5 +1,13 @@
 # Fault injector environment
 
+## Usage
+./simulate.sh faultListName numParallelJobs
+While the simulation is running, logs can be viewed in files:
+- simulate.log
+- runContainer.log
+To watch jobs info in real time using squeue, use the script squeueEcho.sh
+
+## Documentation
 To run multiple containers in parallel, a script is used. It runs many singularity containers.
 Every container needs a "simulations" folder, where it can create and delete files.
 At the end of the simulation, all the results present in every simulations folder will be collected.
