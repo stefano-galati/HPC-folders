@@ -1,10 +1,12 @@
 # Fault injector environment
 
 ## Usage
-./simulate.sh faultListName numParallelJobs
+`./simulate.sh faultListName numParallelJobs`
+
 While the simulation is running, logs can be viewed in files:
-- simulate.log
-- runContainer.log
+* simulate.log
+* runContainer.log
+  
 To watch jobs info in real time using squeue, use the script squeueEcho.sh
 
 ## Documentation
@@ -15,16 +17,16 @@ At the end of the simulation, all the results present in every simulations folde
 Example:
 Let's suppose we run a simulation where a fault list of 100 elements is used. We want to create 5 threads to speed up execution.
 The launching script will create:
-/env
-	/simulations (original folder, to be copied)
-	/sim_1 (used by execution 1)
-	/sim_2
-	/sim_3
-	/sim_4
-	/sim_5
-	/common (configs, exec, faultLists, splitFaultLists)
+* /env
+	* /simulations (original folder, to be copied)
+	* /sim_1 (used by execution 1)
+	* /sim_2
+	* /sim_3
+	* /sim_4
+	* /sim_5
+	* /common (configs, exec, faultLists, splitFaultLists)
 
 
-sim1, sim2, sim3, sim4, sim5 are copied of env/simulations and contain folders m5out, outputs, database(of the results of a single simulation)
+sim1, sim2, sim3, sim4, sim5 are copied of env/simulations and contain folders m5out, outputs, database(of the results of a single simulation).
 
 In the script launching every container, /simulations is mapped to ./sim_i while /common is mapped to ./common
