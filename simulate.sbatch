@@ -4,7 +4,7 @@
 #SBATCH --mail-type=NONE
 #SBATCH --mail-user=s342146@studenti.polito.it
 #SBATCH --partition=cpu_sapphire
-#SBATCH --time=00:05:00
+#SBATCH --time=01:30:00
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=1
 #SBATCH --output=logs/simulate.log
@@ -20,6 +20,12 @@ fi
 faultList=$1
 numThreads=$2
 
+if [[ $numThreads -le 0 ]]; then
+	echo "numThreads must be >= 1"
+	exit 1
+fi
+
+
 echo "Starting the simulation..."
 ./runSimulations.sh $faultList $numThreads
 
@@ -28,3 +34,9 @@ echo "Waiting for active jobs to finish"
 
 echo "Collecting results..."
 ./collectResults.sh
+folder=$?
+
+if [[ $numThreads -ne 1 ]]; then
+	echo "Merging simRes files inside results/$folder..."
+	./mergeSimRes.sh results/$folder
+fi

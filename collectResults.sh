@@ -18,11 +18,14 @@ for SUBDIR in "$PARENT_DIR"/*/; do
     echo "Entering: $SUBDIR"
     
     #the subdir contains a single folder
-    SUBSUBDIR=$(find "$SUBDIR/database" -mindepth 1 -maxdepth 1 -type d | head -n 1)
-    
+    SUBSUBDIR=$(find "${SUBDIR}/database" -mindepth 1 -maxdepth 1 -type d | head -n 1)
+    echo "${SUBDIR}/database -> $SUBSUBDIR" 
+
+    echo "Copying content..."
     cp -r $SUBSUBDIR $DEST_DIR/$(basename $SUBSUBDIR) 
 
 done
 
 echo "All files copied to $DEST_DIR"
 
+exit $COUNT

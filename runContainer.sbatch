@@ -4,10 +4,10 @@
 #SBATCH --mail-type=NONE
 #SBATCH --mail-user=s342146@studenti.polito.it
 #SBATCH --partition=cpu_sapphire
-#SBATCH --time=00:05:00
+#SBATCH --time=00:30:00
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=1
-#SBATCH --output=logs/runContainer.log
+#SBATCH --output=logs/runContainer_%j.log
 #SBATCH --mem-per-cpu=10M
 
 
