@@ -20,6 +20,12 @@ echo "Hello!"
 #Copy configuration file inside original simulations folder
 cp injectorConfig.txt env/simulations/injectorConfig.txt
 
+#Copy input file
+cp "in.txt" "env/simulations/in.txt"
+
+#Copy fault time intervals
+cp "faultTimeInterval.txt" "env/simulations/faultTimeInterval.txt"
+
 #Remove files inside env/common/splitFaultLists
 rm -rf $SPLITFAULTLISTSFOLDER/* 2> /dev/null
 
@@ -33,12 +39,13 @@ rm -rf $WORKSPACEFOLDER/* 2> /dev/null
 #For every fault list generated
 for filepath in $SPLITFAULTLISTSFOLDER/*; do
     if [ -f "$filepath" ]; then
+	let num=$(find "$WORKSPACEFOLDER" -mindepth 1 -maxdepth 1 -type d | wc -l)+1
+	    
 	file=$(basename $filepath)
-        echo "Processing: $file"
+        echo "Processing: $file -> sim_$num"
 
         # Create dedicated simulations folder
-    	let num=$(find "$WORKSPACEFOLDER" -mindepth 1 -maxdepth 1 -type d | wc -l)+1
-	cp -r "$ROOTFOLDER/env/simulations" "$WORKSPACEFOLDER/sim_$num"
+    	cp -r "$ROOTFOLDER/env/simulations" "$WORKSPACEFOLDER/sim_$num"
 	#Empty folders if not empty
 	rm -rf $WORKSPACEFOLDER/sim_$num/database/* 2> /dev/null
 	rm -rf $WORKSPACEFOLDER/sim_$num/outputs/* 2> /dev/null

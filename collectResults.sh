@@ -49,4 +49,6 @@ cp $LOGS_FOLDER/*.log "$DEST_DIR/logs"
 
 echo "All files copied to $DEST_DIR"
 
-exit $COUNT
+# merging simRes files
+echo "Merging simRes files inside $DEST_DIR..."
+./mergeSimRes.sh $DEST_DIR

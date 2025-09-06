@@ -34,9 +34,3 @@ echo "Waiting for active jobs to finish"
 
 echo "Collecting results..."
 ./collectResults.sh
-folder=$?
-
-if [[ $numThreads -ne 1 ]]; then
-	echo "Merging simRes files inside results/$folder..."
-	./mergeSimRes.sh results/$folder
-fi

@@ -30,3 +30,6 @@ The launching script will create:
 sim1, sim2, sim3, sim4, sim5 are copied of env/simulations and contain folders m5out, outputs, database(of the results of a single simulation).
 
 In the script launching every container, /simulations is mapped to ./sim_i while /common is mapped to ./common
+
+WARNING
+At the moment, to change the executable injectorConfig.txt has to be changed. The input file in.txt in the main folder has to be changed too. Manually copy env/common/inputs/inputFile.txt to the main folder with the name "in.txt"
