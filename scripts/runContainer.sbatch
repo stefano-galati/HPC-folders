@@ -6,7 +6,7 @@
 #SBATCH --partition=cpu_sapphire
 #SBATCH --time=00:10:00
 #SBATCH --nodes=1
-#SBATCH --ntasks-per-node=1
+#SBATCH --ntasks-per-node=32
 #SBATCH --output=logs/runContainer_%j.log
 #SBATCH --mem-per-cpu=10M
 

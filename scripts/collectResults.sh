@@ -51,4 +51,4 @@ echo "All files copied to $DEST_DIR"
 
 # merging simRes files
 echo "Merging simRes files inside $DEST_DIR..."
-./mergeSimRes.sh $DEST_DIR
+./scripts/mergeSimRes.sh $DEST_DIR

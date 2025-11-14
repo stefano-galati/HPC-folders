@@ -12,25 +12,11 @@
 
 # TO BE RUN IN ROOT FOLDER OF THE PROJECT (/HPC_Folders)
 
-if [[ $# -ne 2 ]]; then
-        echo "Wrong number of arguments. Usage $0 faultList numThreads"
-        exit 1
-fi
-
-faultList=$1
-numThreads=$2
-
-if [[ $numThreads -le 0 ]]; then
-	echo "numThreads must be >= 1"
-	exit 1
-fi
-
-
 echo "Starting the simulation..."
-./runSimulations.sh $faultList $numThreads
+./scripts/runGoldenSimulation.sh
 
 echo "Waiting for active jobs to finish"
-./wait.sh
+./scripts/wait.sh
 
 echo "Collecting results..."
-./collectResults.sh
+./scripts/collectResults.sh

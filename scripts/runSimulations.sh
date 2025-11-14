@@ -31,7 +31,7 @@ rm -rf $SPLITFAULTLISTSFOLDER/* 2> /dev/null
 
 #Create split fault lists
 echo "Splitting the fault list into $numThreads fault lists..."
-./splitFaultList.sh $faultList $numThreads $FAULTLISTSFOLDER $SPLITFAULTLISTSFOLDER
+./scripts/splitFaultList.sh $faultList $numThreads $FAULTLISTSFOLDER $SPLITFAULTLISTSFOLDER
 
 #Remove any sim folder in the workspace folder
 rm -rf $WORKSPACEFOLDER/* 2> /dev/null
@@ -51,7 +51,7 @@ for filepath in $SPLITFAULTLISTSFOLDER/*; do
 	rm -rf $WORKSPACEFOLDER/sim_$num/outputs/* 2> /dev/null
 
 	#Usage: $0 simFolder faultListFile
-	sbatch $ROOTFOLDER/runContainer.sbatch "$WORKSPACEFOLDER/sim_$num" "$file"
+	sbatch $ROOTFOLDER/scripts/runContainer.sbatch "$WORKSPACEFOLDER/sim_$num" "$file"
 	
     fi
 done

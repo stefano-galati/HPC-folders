@@ -11,4 +11,4 @@ numThreads=$2
 # remove old log files
 rm logs/*.log
 
-sbatch simulate.sbatch $faultList $numThreads
+sbatch scripts/simulate.sbatch $faultList $numThreads

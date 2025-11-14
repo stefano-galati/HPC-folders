@@ -1,0 +1,3 @@
+#Id;targetReg;Mask;FaultType
+golden;0;0;ST0
+# single simulation, to be run with a faultTimeInterval where no faults can occur during the execution
