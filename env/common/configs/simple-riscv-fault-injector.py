@@ -98,5 +98,5 @@ print(f"Exiting @ tick {m5.curTick()} because {exit_event.getCause()}")
 
 if(exit_event.getCause() == "simulate() limit reached"):
 	print("Hey, simulate() limit reached!")
-	exit(1)		#exit code 1 if number of ticks greater than maximum (detecting infinite loops)
+	exit(2)		#exit code 1 if number of ticks greater than maximum (detecting infinite loops)
 
