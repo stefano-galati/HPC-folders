@@ -24,7 +24,7 @@ cp injectorConfig.txt env/simulations/injectorConfig.txt
 cp "in.txt" "env/simulations/in.txt"
 
 #Copy fault time intervals
-cp "faultTimeInterval.txt" "env/simulations/faultTimeInterval.txt"
+cp "faultTimeIntervals.txt" "env/simulations/faultTimeIntervals.txt"
 
 #Remove files inside env/common/splitFaultLists
 rm -rf $SPLITFAULTLISTSFOLDER/* 2> /dev/null

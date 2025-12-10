@@ -33,3 +33,7 @@ In the script launching every container, /simulations is mapped to ./sim_i while
 
 WARNING
 At the moment, to change the executable injectorConfig.txt has to be changed. The input file in.txt in the main folder has to be changed too. Manually copy env/common/inputs/inputFile.txt to the main folder with the name "in.txt"
+
+If a simulation appears to be stuck, be careful to add the tick limit parameter to the injectorConfig.txt file.
+
+At the moment, if a job is assigned to node 7-7, an error occurs. 

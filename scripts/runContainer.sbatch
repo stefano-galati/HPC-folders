@@ -4,14 +4,14 @@
 #SBATCH --mail-type=NONE
 #SBATCH --mail-user=s342146@studenti.polito.it
 #SBATCH --partition=cpu_sapphire
-#SBATCH --time=00:10:00
+#SBATCH --time=03:00:00
 #SBATCH --nodes=1
-#SBATCH --ntasks-per-node=32
+#SBATCH --ntasks-per-node=1
 #SBATCH --output=logs/runContainer_%j.log
-#SBATCH --mem-per-cpu=10M
+#SBATCH --mem-per-cpu=100M
 
 
-if [[$# -ne 2]]; then
+if [[ $# -ne 2 ]]; then
 	echo "Wrong number of args. Usage: $0 simFolder faultListFile"
 	exit 1
 fi
@@ -21,4 +21,7 @@ simFolder=$1
 
 echo "singularity exec --bind $simFolder:/simulations,./env/common:/common faultInjectorContainer.sif /simulations/firstCommands.sh FAULTLISTFILE=$2 FAULTLISTSFOLDER=/common/splitFaultLists"
 
-singularity exec --bind $simFolder:/simulations,./env/common:/common faultInjectorContainer.sif /simulations/firstCommands.sh FAULTLISTFILE=$2 FAULTLISTSFOLDER=/common/splitFaultLists
+echo "Running on node: $SLURMD_NODENAME"
+getent passwd $(id -u)
+
+singularity exec --no-mount passwd --bind $simFolder:/simulations,/home/sgalati/HPC-folders/env/common:/common faultInjectorContainer.sif /simulations/firstCommands.sh FAULTLISTFILE=$2 FAULTLISTSFOLDER=/common/splitFaultLists
