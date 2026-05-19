@@ -32,6 +32,9 @@ X86 ISA). More detailed documentation can be found in `simple.py`.
 import m5
 import argparse
 from m5.objects import *
+from m5.stats import dump, reset
+from m5 import fatal
+import sys
 
 BASEPATH="/home/stefano/Desktop/simulations"
 tick_limit=999999999999999999	
@@ -96,7 +99,9 @@ print(f"Beginning simulation!")
 exit_event = m5.simulate()
 print(f"Exiting @ tick {m5.curTick()} because {exit_event.getCause()}")
 
+m5.stats.dump()
+
 if(exit_event.getCause() == "simulate() limit reached"):
 	print("Hey, simulate() limit reached!")
-	exit(2)		#exit code 2 if number of ticks greater than maximum (detecting infinite loops)
+	exit(42)		#exit code 42 if number of ticks greater than maximum (detecting infinite loops)
 
